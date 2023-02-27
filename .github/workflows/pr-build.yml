@@ -6,10 +6,10 @@ on:
 
 jobs:
   pr-build:
-#    concurrency:
-#      group: pr-mvel_${{ matrix.os }}_${{ matrix.java-version }}_${{ matrix.maven-version }}_${{ github.head_ref }}
-#      cancel-in-progress: true
-#    timeout-minutes: 120
+    concurrency:
+      group: pr-build_${{ matrix.os }}_${{ matrix.java-version }}_${{ matrix.maven-version }}_${{ github.head_ref }}
+      cancel-in-progress: true
+    timeout-minutes: 120
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -20,7 +20,7 @@ jobs:
     name: ${{ matrix.os }} / Java-${{ matrix.java-version }} / Maven-${{ matrix.maven-version }}
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Java and Maven Setup
         uses: actions/setup-java@v2
