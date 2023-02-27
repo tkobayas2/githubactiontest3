@@ -6,10 +6,10 @@ on:
 
 jobs:
   pr-build:
-    concurrency:
-      group: pr-mvel_${{ matrix.os }}_${{ matrix.java-version }}_${{ matrix.maven-version }}_${{ github.head_ref }}
-      cancel-in-progress: true
-    timeout-minutes: 120
+#    concurrency:
+#      group: pr-mvel_${{ matrix.os }}_${{ matrix.java-version }}_${{ matrix.maven-version }}_${{ github.head_ref }}
+#      cancel-in-progress: true
+#    timeout-minutes: 120
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
